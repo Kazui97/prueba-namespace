@@ -47,8 +47,11 @@ public class ZombieOp : MonoBehaviour
         switch(datosZombi.condicion)
         {
             case CosasZombie.Estados.Idle:
-                transform.eulerAngles += new Vector3(0, 0.5f, 0);
+                transform.eulerAngles += new Vector3(0, 0f, 0);
                 break;
+
+            
+
             case CosasZombie.Estados.Moving:
                 if (cambimov == 0)
                 {
@@ -66,7 +69,13 @@ public class ZombieOp : MonoBehaviour
                 {
                     transform.position += new Vector3(0.03f, 0, 0);
                 }
+                break; 
+
+            case CosasZombie.Estados.Rotating:
+                transform.eulerAngles += new Vector3 (0,0.5f,0);
+                
                 break;
+
             default:
                 break;
         }
@@ -89,14 +98,17 @@ public class ZombieOp : MonoBehaviour
             if (datosZombi.condicion == (CosasZombie.Estados)0)
             {
                 datosZombi.condicion = (CosasZombie.Estados)1;
-                cambimov = Random.Range(0, 4);
+                cambimov = Random.Range(0, 3);    
 
             }
-            else
+             else if (datosZombi.condicion == (CosasZombie.Estados)0) 
             {
-                datosZombi.condicion = (CosasZombie.Estados)0;
+                datosZombi.condicion = (CosasZombie.Estados)2;
             }
-            yield return new WaitForSeconds(5);
+            else if(datosZombi.condicion == (CosasZombie.Estados)0)
+            
+           
+            yield return new WaitForSeconds(3);
         }
     }
 
@@ -122,7 +134,8 @@ public struct CosasZombie
     public enum Estados
     {
         Idle,
-        Moving
+        Moving,
+        Rotating
     };
     public Estados condicion;
 
@@ -139,8 +152,8 @@ public struct CosasZombie
     namespace Ally
     {
         using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+        using System.Collections.Generic;
+        using UnityEngine;
 
 public class CiudadanoOp : MonoBehaviour
 {

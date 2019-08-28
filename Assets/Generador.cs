@@ -23,10 +23,12 @@ public class Generador : MonoBehaviour
 
         Hero = GameObject.CreatePrimitive(PrimitiveType.Cube);
         Hero.AddComponent<MovimientoTeclado>();
+        Hero.AddComponent<Hero>();
         Hero.AddComponent<Camera>();
         Hero.AddComponent<Rigidbody>();
+        
 
-        int numPersonaje = Random.Range(9, 20);
+        int numPersonaje = Random.Range(0, 20);
         for (int i = 0; i < numPersonaje; i++)
         {
 
