@@ -98,14 +98,14 @@ public class ZombieOp : MonoBehaviour
             if (datosZombi.condicion == (CosasZombie.Estados)0)
             {
                 datosZombi.condicion = (CosasZombie.Estados)1;
-                cambimov = Random.Range(0, 3);    
+                cambimov = Random.Range(0, 3);
+                datosZombi.condicion = (CosasZombie.Estados)2;    
 
             }
-             else if (datosZombi.condicion == (CosasZombie.Estados)0) 
+             else
             {
-                datosZombi.condicion = (CosasZombie.Estados)2;
+                datosZombi.condicion = (CosasZombie.Estados)0;
             }
-            else if(datosZombi.condicion == (CosasZombie.Estados)0)
             
            
             yield return new WaitForSeconds(3);
