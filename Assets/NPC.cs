@@ -36,6 +36,7 @@ public class ZombieOp : MonoBehaviour
     void Start()
     {
         datosZombi.condicion = (CosasZombie.Estados)0;
+       
         StartCoroutine ("Cambioestado");
     }
 
@@ -47,7 +48,7 @@ public class ZombieOp : MonoBehaviour
         switch(datosZombi.condicion)
         {
             case CosasZombie.Estados.Idle:
-                transform.eulerAngles += new Vector3(0, 0f, 0);
+                transform.position += new Vector3(0, 0f, 0);
                 break;
 
             
@@ -99,14 +100,20 @@ public class ZombieOp : MonoBehaviour
             {
                 datosZombi.condicion = (CosasZombie.Estados)1;
                 cambimov = Random.Range(0, 3);
-                datosZombi.condicion = (CosasZombie.Estados)2;    
+                
+                    
 
             }
-             else
+             if (datosZombi.condicion == (CosasZombie.Estados)1)
+            {
+                datosZombi.condicion = (CosasZombie.Estados)2;
+                
+            }
+            else 
             {
                 datosZombi.condicion = (CosasZombie.Estados)0;
             }
-            
+           
            
             yield return new WaitForSeconds(3);
         }
