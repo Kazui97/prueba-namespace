@@ -127,6 +127,7 @@ namespace NPC
             };
             public ColorZombie colorEs;
         }
+
     }
 
     namespace Ally
@@ -201,4 +202,15 @@ namespace NPC
 
     }
 
+}
+
+
+public class speed
+{    
+    public readonly int maxvel = 1;
+    
+    public speed ( int vel)
+    {
+        this.maxvel = vel;
+    }                
 }
