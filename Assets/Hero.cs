@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using NPC.enemy;
 using NPC.Ally;
+
 public class Hero : MonoBehaviour
 {
-         CosasZombie datosZombi;
+    CosasZombie datosZombi;
     CosasCiudadanos datoCiudadanos;
     void Start()
     {

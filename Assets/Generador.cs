@@ -5,9 +5,6 @@ using NPC.enemy;
 using NPC.Ally;
 
 
-    
-
-
 public class Generador : MonoBehaviour
 {
     GameObject ZombieMesh;
@@ -26,6 +23,7 @@ public class Generador : MonoBehaviour
         Hero.AddComponent<Hero>();
         Hero.AddComponent<Camera>();
         Hero.AddComponent<Rigidbody>();
+        Hero.name = "Hero";
         
 
         int numPersonaje = Random.Range(0, 20);
@@ -37,29 +35,28 @@ public class Generador : MonoBehaviour
             ZombieMesh = GameObject.CreatePrimitive(PrimitiveType.Cube);
             ZombieMesh.AddComponent<ZombieOp>();
             datoZombi = ZombieMesh.GetComponent<ZombieOp>().datosZombi;
-            switch (datoZombi.colorEs)
-            {
-                case CosasZombie.ColorZombie.magenta:
-                    ZombieMesh.GetComponent<Renderer>().material.color = Color.magenta;
+                switch (datoZombi.colorEs)
+                {
+                    case CosasZombie.ColorZombie.magenta:
+                        ZombieMesh.GetComponent<Renderer>().material.color = Color.magenta;
 
-                    break;
-                case CosasZombie.ColorZombie.green:
-                    ZombieMesh.GetComponent<Renderer>().material.color = Color.green;
+                        break;
+                    case CosasZombie.ColorZombie.green:
+                        ZombieMesh.GetComponent<Renderer>().material.color = Color.green;
 
-                    break;
-                case CosasZombie.ColorZombie.cyan:
-                    ZombieMesh.GetComponent<Renderer>().material.color = Color.cyan;
+                        break;
+                    case CosasZombie.ColorZombie.cyan:
+                        ZombieMesh.GetComponent<Renderer>().material.color = Color.cyan;
 
-                    break;
-            }
+                        break;
+                }
             Vector3 pos = new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10));
             ZombieMesh.transform.position = pos;
             ZombieMesh.AddComponent<Rigidbody>();
             ZombieMesh.name = "Zombi";
 
             Gente = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            Gente.AddComponent<CiudadanoOp>();
-            //datoCiudadanos = Gente.GetComponent<CiudadanoOp>().genteNombre
+            Gente.AddComponent<CiudadanoOp>();           
             Vector3 po = new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10));
             Gente.transform.position = po;
             Gente.AddComponent<Rigidbody>();
