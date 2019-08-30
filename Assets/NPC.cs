@@ -205,12 +205,12 @@ namespace NPC
 }
 
 
-public class speed
-{    
-    public readonly int maxvel = 1;
+//public class speed
+//{    
+//    public readonly int maxvel = 1;
     
-    public speed ( int vel)
-    {
-        this.maxvel = vel;
-    }                
-}
+//    public speed ( int vel)
+//    {
+//        this.maxvel = vel;
+//    }                
+//}
