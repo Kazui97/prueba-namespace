@@ -19,7 +19,7 @@ public class Hero : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)          // colision de zombi y aldeanos 
     {
         if (collision.transform.name == "Zombi")
         {

@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using NPC.enemy;
 using NPC.Ally;
 using System;
+
+
 
 public class Generador : MonoBehaviour
 {
@@ -19,16 +22,17 @@ public class Generador : MonoBehaviour
 
     public Generador()
     {
-        minimo = rn.Next(5, 15);
+        minimo = rn.Next(5, 15);    //rango de creación
+
     }
 
     void Start()
-    {
+    {                                 // generador de NPC
         cantbody = rn.Next(minimo, maximo);
         for (int i = 0; i < cantbody; i++)
         {
             if (rn.Next(0,2)==0)
-            {               
+            {                               // generador de zombis
                 ZombieMesh = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 ZombieMesh.AddComponent<ZombieOp>();
 
@@ -54,7 +58,7 @@ public class Generador : MonoBehaviour
                 ZombieMesh.AddComponent<Rigidbody>();
                 ZombieMesh.name = "Zombi";
             }
-            else
+            else // generador de ciudadanos
             {
                 Gente = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 Gente.AddComponent<CiudadanoOp>();
@@ -64,26 +68,15 @@ public class Generador : MonoBehaviour
                 Gente.name = "Gente";
             }
         }
-
-
-        //Debug.Log(minimo);
-
+       
+        // generador hero 
         Hero = GameObject.CreatePrimitive(PrimitiveType.Cube);
         Hero.AddComponent<MovimientoTeclado>();
         Hero.AddComponent<Hero>();
-        Hero.AddComponent<Camera>();
+        Hero.AddComponent<Camera>(); 
         Hero.AddComponent<Rigidbody>();
         Hero.name = "Hero";
-        
-
-        //int numPersonaje = rn.Next(0, 20);
-        //for (int i = 0; i < numPersonaje; i++)
-        //{  
-
-           
-
-
-        //}
+       
        
 
     }
