@@ -18,6 +18,10 @@ public class Generador : MonoBehaviour
     readonly int minimo;
     const int maximo = 25;
     int cantbody;
+    Text zombie;
+    int numzombie;
+
+
     System.Random rn = new System.Random();
 
     public Generador()
@@ -76,9 +80,16 @@ public class Generador : MonoBehaviour
         Hero.AddComponent<Camera>(); 
         Hero.AddComponent<Rigidbody>();
         Hero.name = "Hero";
-       
-       
 
+
+        numzombie = 0;
+        foreach (ZombieOp zombie in Transform.FindObjectsOfType<ZombieOp>())
+        {
+            numzombie= 1;
+        }
     }
+      
+    
+
 
 }
