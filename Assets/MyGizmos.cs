@@ -26,7 +26,7 @@ public class MyGizmos : MonoBehaviour
         for (int a = 0; a < i; a++)
         {
             pru = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            pru.AddComponent<MyGizmos>();
+            //pru.AddComponent<MyGizmos>();
             Vector3 Pos = new Vector3(Random.Range(-5, 10), 0, Random.Range(5, 10));
             pru.transform.position = Pos;
         }
