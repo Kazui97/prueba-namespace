@@ -18,7 +18,8 @@ public class Generador : MonoBehaviour
     readonly int minimo;
     const int maximo = 25;
     int cantbody;
-    Text textz;
+    public Text enemy;
+    public Text ally;
 
 
 
@@ -27,7 +28,7 @@ public class Generador : MonoBehaviour
     public Generador()
     {
         minimo = rn.Next(5, 15);    //rango de creación
-
+        
     }
 
     void Start()
@@ -81,13 +82,25 @@ public class Generador : MonoBehaviour
         Hero.AddComponent<Rigidbody>();
         Hero.name = "Hero";
 
+            
+       int numzombie = 0;
+       int numaldeanos = 0;
 
-       int numzombie =0;
-        foreach (ZombieOp  textz in Transform.FindObjectsOfType<ZombieOp>())
+       
+        foreach (ZombieOp enemy in Transform.FindObjectsOfType<ZombieOp>())
         {
-            numzombie= 1;
+           numzombie++;
         }
-    }
+
+        foreach (CiudadanoOp ally in Transform.FindObjectsOfType<CiudadanoOp>())
+        {
+            numaldeanos++;
+        }
+        Debug.Log(numzombie);
+        ally.text="aldeanos: "+numaldeanos;
+        enemy.text="zombies: "+numzombie;
+      
+    }   
       
     
 
