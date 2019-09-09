@@ -54,12 +54,30 @@ public class Monsters : MonoBehaviour
         vampire v = new vampire();
         Debug.Log(z.TakeDamage(5));
         Debug.Log(v.TakeDamage(5));
-        
+
+        int number = (int)mState;
+        Debug.Log(number);
+        Vector3 pos = new Vector3();
+        pos.x = Random.Range(-10f, -10f);
+        pos.z = Random.Range(-10f, - 10f);
+        transform.position = pos;
+        GameObject[] AllGameObjects = GameObject.FindObjectsOfType(typeof(GameObject)) as GameObject[];
+
+        foreach(GameObject aGameObject.GetComponet)
+
+
+
+
+
+
     }
 
-    
+     void OnDrawGizmos()
+     {
+        Gizmos.DrawLine(transform.position, new Vector3(0, 0, 0));
+    }
     void Update()
     {
-        
+       
     }
 }

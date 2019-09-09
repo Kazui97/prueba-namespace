@@ -10,7 +10,7 @@ public class child : Parent
         ParentFuncion();
         base.FunctionA();
     }
-    public virtual void FunctionA()
+    public virtual void FunctionAA()
     {
         print("la Nueva funcion AA");
     }
